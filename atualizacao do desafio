@@ -1,0 +1,72 @@
+def menu_principal():
+    x=input(
+    '''
+    Seja Bem vindo!!!
+    
+    Escolha a opção que deseja:
+
+    [1] - Cadastrar usuario
+    [2] - Movimentar conta
+    [3] - Sair 
+    [4] - Lista de cliente
+
+    =>   ''')
+    return str(x)
+
+def cadastro (**usuario):
+    usuario["nome"]= input("Digite o Nome do usuario: ")
+    usuario["cpf"]=input("digite o cpf: ")
+    filtro_cpf(usuario["cpf"])
+    usuario["Endereço"]=input("digite o endereço: ")
+    usuario["telefone"]=input("Digite o numero de telefone: ")
+    usuario["Email"]=input("Digite o email: ")
+    usuario["contas"]=len(contas)+1
+    contas.append(1)
+    return usuario
+
+
+def depositar (*valor):
+    valor = float(input("Informe o valor do depósito: "))
+    return valor
+
+def sacar (*saque):
+    saque = float(input("Informe o valor do saque: "))
+    return saque
+
+def extratos(extrato,saldo,/):
+    print("\n================ EXTRATO ================")
+    print("Não foram realizadas movimentações." if not extrato else extrato)
+    print(f"\nSaldo: R$ {saldo:.2f}")
+    print("==========================================")
+
+
+def filtro_cpf (cpf):
+    for x in clientes:
+        for v in x.values():
+            if v == cpf:
+                print("cpf ja cadastrado no sistema...")
+                exit("Nao podemos realizar o cadastro")       
+                
+                
+
+clientes=[]
+menu = """
+
+        [d] Depositar
+        [s] Sacar
+        [e] Extrato
+        [q] Sair
+
+        => """    
+
+
+limite = 500
+extrato = ""
+numero_saques = 0
+LIMITE_SAQUES = 3
+saldo = 0
+contas=[]
+
+
+
+while True:
